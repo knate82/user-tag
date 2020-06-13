@@ -1,0 +1,28 @@
+h2 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+section {
+  width: 95%;
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+
+.comments {
+  display: flex;
+  justify-content: space-between;
+}
+
+#newComment {
+  width: 100%;
+  margin: auto;
+  height: 200px;
+  resize: none;
+}
+
+select {
+  overflow: auto;
+  position: absolute;
+}
