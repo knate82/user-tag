@@ -1,0 +1,22 @@
+{
+  "name": "user-tag",
+  "version": "1.0.0",
+  "description": "Tag user in comment.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knate82/user-tag.git"
+  },
+  "author": "Nathan Mihu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knate82/user-tag/issues"
+  },
+  "homepage": "https://github.com/knate82/user-tag#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
