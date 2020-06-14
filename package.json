@@ -18,5 +18,8 @@
   "homepage": "https://github.com/knate82/user-tag#readme",
   "devDependencies": {
     "http-server": "^0.12.3"
+  },
+  "dependencies": {
+    "moment": "^2.26.0"
   }
 }

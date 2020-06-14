@@ -14,25 +14,25 @@
       <h2>Comments:</h2>
       <div class="comments" ng-repeat="x in comments">
         <p>{{x.message}}</p>
-        <p>system - {{x.timeStamp}}</p>
+        <p>system - {{x.timestamp}}</p>
       </div>
     </section>
     <section>
       <button class="add-comment" ng-click="toggleCommentForm()" ng-show="!addComment">Add Comment</button>
     </section>
     <section ng-show="addComment">
-      <select size="4" ng-model="selectedName" ng-options="y.value as y.name for y in users"
-        ng-show="showUserSelection">
-      </select>
+      <ul id="usersList" class="users-list" ng-show="showUserSelection">
+        <li ng-repeat="y in users" ng-click="tagUser(y)">{{y.name}}</li>
+      </ul>
       <textarea id="newComment" ng-model="newMessage" wrap="soft"></textarea>
       <div>
-        <button class="add-comment" ng-click="submit()" ng-show="addComment">Submit Comment</button>
+        <button class="add-comment" ng-click="submit(newMessage)" ng-show="addComment">Submit Comment</button>
         <button class="cancel" ng-click="toggleCommentForm()" ng-show="addComment">Cancel</button>
       </div>
     </section>
 
     <script src="js/app.js"></script>
-    <script src="js/controllers/commentController.js"></script>
+    <script src="js/commentController.js"></script>
   </body>
 
 </html>
