@@ -27,16 +27,25 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
+  border: 1px solid rgba(54, 53, 53, .2);
+  border-radius: 2px;
   background-color: white;
   min-width: 200px;
+  max-width: 300px;
+  max-height: 200px;
   padding: 0;
   cursor: pointer;
+  overflow-y: scroll;
 }
 
 .users-list li {
+  transition: all 0.5s ease-in-out;
   list-style-type: none;
   padding: 10px 20px;
+}
+
+.user-list li.active {
+  background-color: lightskyblue;
 }
 
 .users-list li:hover {

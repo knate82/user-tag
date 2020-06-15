@@ -1,7 +1,38 @@
 app.controller("commentController", ($scope) => {
-  $scope.addComment = false;
+  /**
+   * Items for the UserTag component
+   */
   $scope.showUserSelection = false;
+  $scope.isTagging = false;
   $scope.taggedUsers = [];
+  $scope.userListBox = document.getElementById('userList');
+  $scope.messageBox = document.getElementById('newComment');
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "@") {
+      $scope.showUserSelection = true;
+      $scope.isTagging = true;
+    } else if ($scope.isTagging && e.key === "Backspace") {
+      if ($scope.messageBox.value.endsWith('@')) {
+        $scope.showUserSelection = false;
+        $scope.isTagging = false;
+      }
+    }
+  });
+
+  $scope.tagUser = function (user) {
+    let message = document.getElementById("newComment").value;
+    let comment = `${message}${user.name}`;
+    document.getElementById("newComment").value = comment;
+    $scope.taggedUsers.push(user);
+    $scope.showUserSelection = false;
+    document.getElementById("newComment").focus();
+  };
+
+  /**
+   * Items for Demo purposes
+   */
+  $scope.addComment = false;
   $scope.users = [{
       'userID': 1,
       'name': 'Kevin'
@@ -17,6 +48,14 @@ app.controller("commentController", ($scope) => {
     {
       'userID': 4,
       'name': 'Gabbey'
+    },
+    {
+      'userID': 5,
+      'name': 'Jefferson'
+    },
+    {
+      'userID': 6,
+      'name': 'Jason'
     }
   ];
 
@@ -24,21 +63,6 @@ app.controller("commentController", ($scope) => {
     message: "This task was assigned to Bryan",
     timestamp: "2020/04/03 11:00 AM"
   }];
-
-  document.addEventListener("keydown", e => {
-    if (e.key === "@") {
-      $scope.showUserSelection = true;
-    }
-  });
-
-  $scope.tagUser = function (user) {
-    let message = document.getElementById("newComment").value;
-    let comment = `${message}${user.name}`;
-    document.getElementById("newComment").value = comment;
-    $scope.taggedUsers.push(user);
-    $scope.showUserSelection = false;
-    document.getElementById("newComment").focus();
-  };
 
   $scope.toggleCommentForm = () => {
     const newComment = document.getElementById("newComment");
@@ -72,7 +96,6 @@ app.controller("commentController", ($scope) => {
   };
 
   $scope.submit = function () {
-    let messageBox = document.getElementById('newComment');
     if (messageBox.value === "") {
       return;
     }
